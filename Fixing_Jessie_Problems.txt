@@ -1,0 +1,43 @@
+If you're opening this, you fucked up with your 
+Debian installation, and your past version is helping you
+to fix everything.
+
+First of all, check if every basic feature is fine.
+Follow this link:
+  http://linuxgeekar.blogspot.com.br/2015/05/things-to-do-after-installing-debian.html
+
+Make the recommended steps for sources and etcetera
+
+recover your dropbox!
+if after all these steps your bluetooth doesn't work fine
+recover it's firmware, probably "firmware-atheros"
+
+at this point, if you didn't installed chrome, it's not a problem, we'll use
+firefox to add plugins on debian and, if you trully remember, doing it without
+firefox is piece of fuckin' shit.
+
+If it isn't installed, install.
+If it isn't enable, do it.
+Plugin List:
+  Alternate Tab
+  AutoMove Windows
+  Hide TopBar (optional)
+  OpenWeather
+  PixelSaver
+  ShellTile
+  TaskBar
+  Todo List
+  Workspace grid(VERY IMPORTANT)
+  Workkspace Indicator
+  
+Configure it's commands on related menu or keyboard shortcuts.
+
+Fix Brightness control:
+  Everytime you reinstall Debian you need to fix this, so:
+  change line with:
+    GRUB_CMDLINE_LINUX_DEFAULT=...
+
+  to this line:
+    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash pcie_aspm=force acpi_backlight=vendor"
+
+That's it. All Issues fixed.

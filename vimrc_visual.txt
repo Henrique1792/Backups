@@ -1,0 +1,149 @@
+"Display Sets.
+  "Line Number
+    set nu
+  "TabStops and ShiftWidth
+    set ts=2 sw=2 et
+  "Visual autocomplete for command menu
+    set wildmenu
+  "Perma StatusBar
+    set laststatus=2
+  "Set ColorSTD
+    set t_Co=256
+  "Syntax Highlighting
+    syntax on
+  "Show incomplete Commands
+    set showcmd
+  "Always show Cursor
+    set ruler
+"Highlight Searching
+  "Highlight search Matches
+    set hlsearch
+  "Incremental Searching *Search on Type
+    set incsearch 
+  "Ignore case on Search
+    set smartcase
+  "No escape character
+    set ignorecase
+  "Command history
+    set history=100
+"No Time Delay when press O
+  set timeout timeoutlen=1000 ttimeoutlen=100
+
+" Allow backspace to delete end of line, indent and start of line characters
+    set backspace=indent,eol,start
+" No Intro
+    set shortmess+=I
+" No Beep when misstype
+    set visualbell
+"matching {[()]} highlighted
+  set showmatch
+
+
+"Files Changed
+" No Swap File
+  set noswapfile
+" No .bkp File
+  set nowritebackup
+
+  
+"Status bar
+  :set statusline=%F         " Path to the file
+  :set statusline+=%m
+  :set statusline+=%=        " Switch to the right side
+  :set statusline+=Current:\ 
+  :set statusline+=%l        " Current line
+  :set statusline+=/         " Separator
+  :set statusline+=Total:\ 
+  :set statusline+=%L\         " Total lines
+
+"Enable system clipboarding 
+:set clipboard+=unnamed
+
+call plug#begin()
+  Plug 'scrooloose/nerdtree'
+  Plug 'flazz/vim-colorschemes'
+  Plug 'Townk/vim-autoclose'
+  Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'wting/rust.vim'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'majutsushi/tagbar'
+  Plug 'tpope/vim-git'
+  Plug 'tpope/vim-fugitive'
+  Plug 'jaxbot/github-issues.vim'
+  Plug 'scrooloose/syntastic'
+  Plug 'junegunn/goyo.vim' 
+  Plug 'davidhalter/jedi-vim'
+
+call plug#end()
+
+  :set statusline+=%{fugitive#statusline()}
+"Visual 
+  "Colorschemes
+  "colo valloric 
+  colo wombat256i
+  "Line Number
+  hi LineNr ctermfg=white
+  hi LineNr ctermbg=none
+  "Lower Bar
+  hi StatusLine ctermfg=250 ctermbg=16
+  "Search Highlight Style
+  hi Search  ctermfg=white ctermbg=darkblue
+"ident guides
+  let g:indent_guides_enable_on_vim_startup=1
+  let g:indent_guides_start_level=1 
+  let g:indent_guides_guide_size=1 
+  let g:indent_guides_auto_colors =0
+  hi IndentGuidesOdd  ctermbg=darkblue   ctermfg=107
+  hi IndentGuidesEven ctermbg=brown ctermfg=244
+
+"nerdTREE
+  map <C-n> :NERDTreeToggle<CR>
+
+"Syntastic
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+  
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_auto_loc_list = 1
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+  let g:syntastic_aggregate_errors = 1
+  "Commands
+"remove highlight search
+  nmap <F3> :noh<CR>
+
+"tab navigation
+  nnoremap <F10> :tabn<CR>
+  nnoremap <F9> :tabp<CR>
+  nnoremap <F2> :tabnew<CR>
+  nnoremap  <F4> :tabclose<CR>
+
+"split navigation
+  nnoremap ,v <C-w>v
+  nnoremap ,s <C-w>s
+  nnoremap ,q <C-w>q
+
+
+"clipboard copy - works only in vim versions with (+clipboard) flag sat. 
+  vnoremap ;Y "+y
+  nnoremap ;P "+p
+
+" TagBar
+  nmap <F8> :TagbarToggle<CR>
+
+" Window Split Navigation
+  nmap <silent> <C-h> :wincmd h<CR>
+  nmap <silent> <C-j> :wincmd j<CR>
+  nmap <silent> <C-k> :wincmd k<CR>
+  nmap <silent> <C-l> :wincmd l<CR>
+
+"Enable mouse
+"set mouse=a
+"
+
+"Set Goyo
+  nnoremap <F7> :Goyo 150x55<CR>
+  nnoremap <F8> :Goyo!<CR>
+
