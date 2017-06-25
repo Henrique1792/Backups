@@ -1,20 +1,35 @@
 "Display Sets.
-  "Line Number
-    set nu
-  "TabStops and ShiftWidth
-    set ts=2 sw=2 et
+
+set relativenumber "Relative number
+set nu "Line Number
+set showcmd
+set modeline
+
+"TabStops and ShiftWidth
+"set ts=2 sw=2 softtabstop=2 textwidth=80
+set ts=8 expandtab sw=4 softtabstop=4 textwidth=80
   "Visual autocomplete for command menu
-    set wildmenu
+set wildmenu
   "Perma StatusBar
-    set laststatus=2
+set laststatus=2
   "Set ColorSTD
-    set t_Co=256
+set t_Co=256
   "Syntax Highlighting
-    syntax on
-  "Show incomplete Commands
-    set showcmd
-  "Always show Cursor
-    set ruler
+syntax on
+"Show incomplete Commands
+set showcmd 
+
+"fold methods
+set foldmethod=indent
+set foldlevel=99
+    "Always show Cursor
+set ruler
+
+set autoindent smartindent
+
+  "Enable system clipboarding 
+  :set clipboard+=unnamed
+    
 "Highlight Searching
   "Highlight search Matches
     set hlsearch
@@ -34,7 +49,6 @@
 " No Intro
     set shortmess+=I
 " No Beep when misstype
-    set visualbell
 "matching {[()]} highlighted
   set showmatch
 
@@ -43,9 +57,16 @@
 " No Swap File
   set noswapfile
 " No .bkp File
-  set nowritebackup
+" set nowritebackup
+" vim not compatible with vi
+  set nocompatible
+  set autoread
+  set encoding=utf-8
+  set fileencoding=utf-8
+  set lazyredraw
 
-  
+  set guifont=Source\ Code\ Pro
+
 "Status bar
   :set statusline=%F         " Path to the file
   :set statusline+=%m
@@ -56,25 +77,36 @@
   :set statusline+=Total:\ 
   :set statusline+=%L\         " Total lines
 
-"Enable system clipboarding 
-:set clipboard+=unnamed
 
 call plug#begin()
-  Plug 'scrooloose/nerdtree'
-  Plug 'flazz/vim-colorschemes'
-  Plug 'Townk/vim-autoclose'
-  Plug 'nathanaelkane/vim-indent-guides'
-  Plug 'wting/rust.vim'
-  Plug 'scrooloose/nerdcommenter'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'majutsushi/tagbar'
-  Plug 'tpope/vim-git'
-  Plug 'tpope/vim-fugitive'
-  Plug 'jaxbot/github-issues.vim'
-  Plug 'scrooloose/syntastic'
-  Plug 'junegunn/goyo.vim' 
-  Plug 'davidhalter/jedi-vim'
+    Plug 'scrooloose/nerdtree'
+    Plug 'flazz/vim-colorschemes'
+    Plug 'Townk/vim-autoclose'
+    Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'majutsushi/tagbar'
+    Plug 'tpope/vim-git'
+    Plug 'tpope/vim-fugitive'
+    Plug 'jaxbot/github-issues.vim'
+    Plug 'scrooloose/syntastic'
+    Plug 'junegunn/goyo.vim' 
+    Plug 'davidhalter/jedi-vim'
+    Plug 'SirVer/ultisnips'
+    Plug 'xolox/vim-misc'
+    Plug 'xolox/vim-lua-ftplugin'
 
+	
+	"--Web Development--
+    Plug 'isruslan/vim-es6'
+    Plug 'skammer/vim-css-color'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'HerringtonDarkholme/yats.vim'
+    Plug 'Quramy/tsuquyomi'
+    Plug 'jelera/vim-javascript-syntax'
+    Plug 'pangloss/vim-javascript'
+"--MIPS programming--
+    Plug 'Harenome/vim-mipssyntax'
 call plug#end()
 
   :set statusline+=%{fugitive#statusline()}
@@ -83,22 +115,24 @@ call plug#end()
   "colo valloric 
   colo wombat256i
   "Line Number
-  hi LineNr ctermfg=white
-  hi LineNr ctermbg=none
-  "Lower Bar
-  hi StatusLine ctermfg=250 ctermbg=16
-  "Search Highlight Style
-  hi Search  ctermfg=white ctermbg=darkblue
+  hi LineNr term=bold ctermfg=15 ctermbg=none 
+  hi CursorLineNr   term=bold  ctermfg=black ctermbg=15
+  hi StatusLine  ctermfg=15 ctermbg=none
+  hi TablineFill ctermfg=202 ctermbg=black
+      "Search Highlight Style
+  hi Search  ctermfg=white ctermbg=4
 "ident guides
   let g:indent_guides_enable_on_vim_startup=1
   let g:indent_guides_start_level=1 
   let g:indent_guides_guide_size=1 
   let g:indent_guides_auto_colors =0
-  hi IndentGuidesOdd  ctermbg=darkblue   ctermfg=107
-  hi IndentGuidesEven ctermbg=brown ctermfg=244
+  hi IndentGuidesOdd   ctermbg=88
+  hi IndentGuidesEven  ctermbg=6
+
+
 
 "nerdTREE
-  map <C-n> :NERDTreeToggle<CR>
+  nmap <C-n> :NERDTreeToggle<CR>
 
 "Syntastic
   set statusline+=%#warningmsg#
@@ -112,7 +146,7 @@ call plug#end()
   let g:syntastic_aggregate_errors = 1
   "Commands
 "remove highlight search
-  nmap <F3> :noh<CR>
+  nnoremap <F3> :noh<CR>
 
 "tab navigation
   nnoremap <F10> :tabn<CR>
