@@ -117,7 +117,7 @@ call plug#end()
   "Line Number
   hi LineNr term=bold ctermfg=15 ctermbg=none 
   hi CursorLineNr   term=bold  ctermfg=black ctermbg=15
-  hi StatusLine  ctermfg=15 ctermbg=none
+  hi StatusLine  ctermfg=15 ctermbg=232
   hi TablineFill ctermfg=202 ctermbg=black
       "Search Highlight Style
   hi Search  ctermfg=white ctermbg=4
