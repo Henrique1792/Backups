@@ -79,7 +79,6 @@ set autoindent smartindent
 
 
 call plug#begin()
-    Plug 'scrooloose/nerdtree'
     Plug 'flazz/vim-colorschemes'
     Plug 'Townk/vim-autoclose'
     Plug 'nathanaelkane/vim-indent-guides'
@@ -97,7 +96,7 @@ call plug#begin()
     Plug 'xolox/vim-lua-ftplugin'
 
 	
-	"--Web Development--
+    "--Web Development--
     Plug 'isruslan/vim-es6'
     Plug 'skammer/vim-css-color'
     Plug 'leafgarland/typescript-vim'
@@ -105,9 +104,13 @@ call plug#begin()
     Plug 'Quramy/tsuquyomi'
     Plug 'jelera/vim-javascript-syntax'
     Plug 'pangloss/vim-javascript'
-"--MIPS programming--
+
+    "--MIPS programming--
     Plug 'Harenome/vim-mipssyntax'
-call plug#end()
+    "--Erlang highlight syntax
+
+    Plug 'vim-erlang/vim-erlang-runtime'
+ call plug#end()
 
   :set statusline+=%{fugitive#statusline()}
 "Visual 
@@ -118,7 +121,7 @@ call plug#end()
   hi LineNr term=bold ctermfg=15 ctermbg=none 
   hi CursorLineNr   term=bold  ctermfg=black ctermbg=15
   hi StatusLine  ctermfg=15 ctermbg=232
-  hi TablineFill ctermfg=202 ctermbg=black
+  hi TablineFill ctermfg=yellow ctermbg=black
       "Search Highlight Style
   hi Search  ctermfg=white ctermbg=4
 "ident guides
@@ -132,7 +135,7 @@ call plug#end()
 
 
 "nerdTREE
-  nmap <C-n> :NERDTreeToggle<CR>
+  nmap <C-n> :Vex<CR>
 
 "Syntastic
   set statusline+=%#warningmsg#
@@ -179,5 +182,8 @@ call plug#end()
 
 "Set Goyo
   nnoremap <F7> :Goyo 150x55<CR>
-  nnoremap <F8> :Goyo!<CR>
+  nnoremap <F9> :Goyo!<CR>
 
+"Netrw
+
+let g:netrw_liststyle = 1
