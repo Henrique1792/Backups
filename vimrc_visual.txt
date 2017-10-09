@@ -1,3 +1,37 @@
+call plug#begin()
+    Plug 'flazz/vim-colorschemes'
+    Plug 'Townk/vim-autoclose'
+    Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'majutsushi/tagbar'
+    Plug 'tpope/vim-git'
+    Plug 'tpope/vim-fugitive'
+    Plug 'jaxbot/github-issues.vim'
+    Plug 'scrooloose/syntastic'
+    Plug 'junegunn/goyo.vim' 
+    Plug 'davidhalter/jedi-vim'
+    Plug 'SirVer/ultisnips'
+    Plug 'xolox/vim-misc'
+    Plug 'xolox/vim-lua-ftplugin'
+    Plug 'wincent/command-t'
+    Plug 'tpope/vim-surround'
+	
+    "--Web Development--
+    Plug 'isruslan/vim-es6'
+    Plug 'skammer/vim-css-color'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'HerringtonDarkholme/yats.vim'
+    Plug 'Quramy/tsuquyomi'
+    Plug 'jelera/vim-javascript-syntax'
+    Plug 'pangloss/vim-javascript'
+
+    "--MIPS programming--
+    Plug 'Harenome/vim-mipssyntax'
+    "--Erlang highlight syntax
+
+    Plug 'vim-erlang/vim-erlang-runtime'
+ call plug#end()
 "Display Sets.
 
 set relativenumber "Relative number
@@ -78,40 +112,6 @@ set autoindent smartindent
   :set statusline+=%L\         " Total lines
 
 
-call plug#begin()
-    Plug 'flazz/vim-colorschemes'
-    Plug 'Townk/vim-autoclose'
-    Plug 'nathanaelkane/vim-indent-guides'
-    Plug 'scrooloose/nerdcommenter'
-    Plug 'airblade/vim-gitgutter'
-    Plug 'majutsushi/tagbar'
-    Plug 'tpope/vim-git'
-    Plug 'tpope/vim-fugitive'
-    Plug 'jaxbot/github-issues.vim'
-    Plug 'scrooloose/syntastic'
-    Plug 'junegunn/goyo.vim' 
-    Plug 'davidhalter/jedi-vim'
-    Plug 'SirVer/ultisnips'
-    Plug 'xolox/vim-misc'
-    Plug 'xolox/vim-lua-ftplugin'
-    Plug 'wincent/command-t'
-    Plug 'tpope/vim-surround'
-	
-    "--Web Development--
-    Plug 'isruslan/vim-es6'
-    Plug 'skammer/vim-css-color'
-    Plug 'leafgarland/typescript-vim'
-    Plug 'HerringtonDarkholme/yats.vim'
-    Plug 'Quramy/tsuquyomi'
-    Plug 'jelera/vim-javascript-syntax'
-    Plug 'pangloss/vim-javascript'
-
-    "--MIPS programming--
-    Plug 'Harenome/vim-mipssyntax'
-    "--Erlang highlight syntax
-
-    Plug 'vim-erlang/vim-erlang-runtime'
- call plug#end()
 
   :set statusline+=%{fugitive#statusline()}
 "Visual 
@@ -130,8 +130,8 @@ call plug#begin()
   let g:indent_guides_start_level=1 
   let g:indent_guides_guide_size=1 
   let g:indent_guides_auto_colors =0
-  hi IndentGuidesOdd   ctermbg=88
-  hi IndentGuidesEven  ctermbg=6
+  hi IndentGuidesOdd   ctermbg=95
+  hi IndentGuidesEven  ctermbg=53
 
 
 
