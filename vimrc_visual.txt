@@ -94,7 +94,8 @@ call plug#begin()
     Plug 'SirVer/ultisnips'
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-lua-ftplugin'
-
+    Plug 'wincent/command-t'
+    Plug 'tpope/vim-surround'
 	
     "--Web Development--
     Plug 'isruslan/vim-es6'
@@ -168,7 +169,7 @@ call plug#begin()
   nnoremap ;P "+p
 
 " TagBar
-  nmap <F8> :TagbarToggle<CR>
+  nmap <F6> :TagbarToggle<CR>
 
 " Window Split Navigation
   nmap <silent> <C-h> :wincmd h<CR>
@@ -182,7 +183,7 @@ call plug#begin()
 
 "Set Goyo
   nnoremap <F7> :Goyo 150x55<CR>
-  nnoremap <F9> :Goyo!<CR>
+  nnoremap <F8> :Goyo!<CR>
 
 "Netrw
 
