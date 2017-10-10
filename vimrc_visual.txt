@@ -159,14 +159,14 @@ set autoindent smartindent
   nnoremap  <F4> :tabclose<CR>
 
 "split navigation
-  nnoremap ,v <C-w>v
-  nnoremap ,s <C-w>s
-  nnoremap ,q <C-w>q
+  nnoremap <Leader>v <C-w>v
+  nnoremap <Leader>s <C-w>s
+  nnoremap <Leader>q <C-w>q
 
 
 "clipboard copy - works only in vim versions with (+clipboard) flag sat. 
-  vnoremap ;Y "+y
-  nnoremap ;P "+p
+  vnoremap <Leader>y "+y
+  nnoremap <Leader>p "+p
 
 " TagBar
   nmap <F6> :TagbarToggle<CR>
@@ -192,3 +192,8 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 let g:netrw_list_hide ='.git'
+
+"Fugitive Token
+  let g:github_upstream_issues =1
+  let g:github_api_url = "https://api.github.com/"
+let g:gissues_lazy_load = 1
