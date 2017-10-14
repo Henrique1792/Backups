@@ -9,3 +9,5 @@ curl -u 'Henrique1792' https://api.github.com/user/repos -d "{\"name\":\"$repo_n
 "creating git repository if it doesn't exist"
 git init
 git remote add origin "https://github.com/Henrique1792/$repo_name.git"
+
+touch .gitignore README.md
