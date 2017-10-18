@@ -41,7 +41,7 @@ set modeline
 
 "TabStops and ShiftWidth
 "set ts=2 sw=2 softtabstop=2 textwidth=80
-set ts=8 expandtab sw=4 softtabstop=4 textwidth=80
+set ts=4 expandtab sw=4 softtabstop=4 textwidth=100
   "Visual autocomplete for command menu
 set wildmenu
   "Perma StatusBar
@@ -117,21 +117,24 @@ set autoindent smartindent
 "Visual 
   "Colorschemes
   "colo valloric 
-  colo wombat256i
+  colo railscasts
   "Line Number
   hi LineNr term=bold ctermfg=15 ctermbg=none 
   hi CursorLineNr   term=bold  ctermfg=black ctermbg=15
   hi StatusLine  ctermfg=15 ctermbg=232
   hi TablineFill ctermfg=yellow ctermbg=black
-      "Search Highlight Style
-  hi Search  ctermfg=white ctermbg=4
+  "Search Highlight Style
+  hi Search  ctermfg=white ctermbg=blue
+
 "ident guides
   let g:indent_guides_enable_on_vim_startup=1
   let g:indent_guides_start_level=1 
-  let g:indent_guides_guide_size=1 
-  let g:indent_guides_auto_colors =0
-  hi IndentGuidesOdd   ctermbg=95
-  hi IndentGuidesEven  ctermbg=53
+  let g:indent_guides_guide_size=1
+  let g:indent_guides_auto_colors=0
+
+  hi IndentGuidesOdd  guibg=black   ctermbg=130 
+  hi IndentGuidesEven guibg=black ctermbg=white
+
 
 
 
@@ -172,10 +175,10 @@ set autoindent smartindent
   nmap <F6> :TagbarToggle<CR>
 
 " Window Split Navigation
-  nmap <silent> <C-h> :wincmd h<CR>
-  nmap <silent> <C-j> :wincmd j<CR>
-  nmap <silent> <C-k> :wincmd k<CR>
-  nmap <silent> <C-l> :wincmd l<CR>
+  nmap <silent> <Leader>h :wincmd h<CR>
+  nmap <silent> <Leader>j :wincmd j<CR>
+  nmap <silent> <Leader>k :wincmd k<CR>
+  nmap <silent> <Leader>l :wincmd l<CR>
 
 "Enable mouse
 "set mouse=a
@@ -185,7 +188,7 @@ set autoindent smartindent
   nnoremap <F7> :Goyo 150x55<CR>
   nnoremap <F8> :Goyo!<CR>
 
-"Netrw
+    "Netrw
 
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
