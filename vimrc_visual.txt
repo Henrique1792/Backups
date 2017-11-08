@@ -1,22 +1,19 @@
 call plug#begin()
     Plug 'flazz/vim-colorschemes'
-    Plug 'Townk/vim-autoclose'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'scrooloose/nerdcommenter'
     Plug 'airblade/vim-gitgutter'
     Plug 'majutsushi/tagbar'
-    Plug 'tpope/vim-git'
-    Plug 'tpope/vim-fugitive'
     Plug 'jaxbot/github-issues.vim'
     Plug 'scrooloose/syntastic'
-    Plug 'junegunn/goyo.vim' 
     Plug 'davidhalter/jedi-vim'
     Plug 'SirVer/ultisnips'
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-lua-ftplugin'
     Plug 'wincent/command-t'
     Plug 'tpope/vim-surround'
-	
+    Plug 'tpope/vim-fugitive'
+    Plug 'wesQ3/vim-windowswap'
     "--Web Development--
     Plug 'isruslan/vim-es6'
     Plug 'skammer/vim-css-color'
@@ -25,30 +22,27 @@ call plug#begin()
     Plug 'Quramy/tsuquyomi'
     Plug 'jelera/vim-javascript-syntax'
     Plug 'pangloss/vim-javascript'
-
     "--MIPS programming--
     Plug 'Harenome/vim-mipssyntax'
     "--Erlang highlight syntax
-
     Plug 'vim-erlang/vim-erlang-runtime'
- call plug#end()
+call plug#end()
 "Display Sets.
-
+set hidden
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.o
 set relativenumber "Relative number
 set nu "Line Number
-set showcmd
 set modeline
 
 "TabStops and ShiftWidth
-"set ts=2 sw=2 softtabstop=2 textwidth=80
-set ts=4 expandtab sw=4 softtabstop=4 textwidth=100
-  "Visual autocomplete for command menu
+set ts=4 expandtab sw=4 textwidth=100
+"Visual autocomplete for command menu
 set wildmenu
-  "Perma StatusBar
+"Perma StatusBar
 set laststatus=2
-  "Set ColorSTD
+"Set ColorSTD
 set t_Co=256
-  "Syntax Highlighting
+"Syntax Highlighting
 syntax on
 "Show incomplete Commands
 set showcmd 
@@ -56,147 +50,164 @@ set showcmd
 "fold methods
 set foldmethod=indent
 set foldlevel=99
-    "Always show Cursor
+"Always show Cursor
 set ruler
 
 set autoindent smartindent
 
-  "Enable system clipboarding 
-  :set clipboard+=unnamed
-    
+"Enable system clipboarding 
+set clipboard+=unnamed
+
 "Highlight Searching
-  "Highlight search Matches
-    set hlsearch
-  "Incremental Searching *Search on Type
-    set incsearch 
-  "Ignore case on Search
-    set smartcase
-  "No escape character
-    set ignorecase
-  "Command history
-    set history=100
+"Highlight search Matches
+set hlsearch
+"Incremental Searching *Search on Type
+set incsearch 
+"Ignore case on Search
+set smartcase
+"No escape character
+set ignorecase
+"Command history
+set history=100
 "No Time Delay when press O
-  set timeout timeoutlen=1000 ttimeoutlen=100
+set timeout timeoutlen=1000 ttimeoutlen=100
 
 " Allow backspace to delete end of line, indent and start of line characters
-    set backspace=indent,eol,start
+set backspace=indent,eol,start
 " No Intro
-    set shortmess+=I
+set shortmess+=I
 " No Beep when misstype
 "matching {[()]} highlighted
-  set showmatch
+set showmatch
 
 
 "Files Changed
 " No Swap File
-  set noswapfile
+set noswapfile
 " No .bkp File
 " set nowritebackup
 " vim not compatible with vi
-  set nocompatible
-  set autoread
-  set encoding=utf-8
-  set fileencoding=utf-8
-  set lazyredraw
+set nocompatible
+set autoread
+set encoding=utf-8
+set fileencoding=utf-8
+set lazyredraw
 
-  set guifont=Source\ Code\ Pro
 
+"Current mode for statusline
 "Status bar
-  :set statusline=%F         " Path to the file
-  :set statusline+=%m
-  :set statusline+=%=        " Switch to the right side
-  :set statusline+=Current:\ 
-  :set statusline+=%l        " Current line
-  :set statusline+=/         " Separator
-  :set statusline+=Total:\ 
-  :set statusline+=%L\         " Total lines
 
+set statusline=%f       " Path to the file
+set statusline+=%m
+set statusline+=%=        " Switch to the right side
+set statusline+=%0*\[%{mode()}]
+set statusline+=\ Current:\ 
+set statusline+=%l        " Current line
+set statusline+=/         " Separator
+set statusline+=Total:\ 
+set statusline+=%L\         " Total lines
+set statusline+=%{fugitive#statusline()}
 
-
-  :set statusline+=%{fugitive#statusline()}
 "Visual 
-  "Colorschemes
-  "colo valloric 
-  colo railscasts
-  "Line Number
-  hi LineNr term=bold ctermfg=15 ctermbg=none 
-  hi CursorLineNr   term=bold  ctermfg=black ctermbg=15
-  hi StatusLine  ctermfg=15 ctermbg=232
-  hi TablineFill ctermfg=yellow ctermbg=black
-  "Search Highlight Style
-  hi Search  ctermfg=white ctermbg=blue
+"Colorschemes
+"colo valloric 
+"colo railscasts
+"colo zenburn
+"colo gotham256
+"colo Revolution
+colo mustang
+"Line Number
+hi LineNr term=bold ctermfg=15 ctermbg=none 
+hi CursorLineNr   term=bold  ctermfg=black ctermbg=15
+"StatusLine
+hi StatusLine ctermfg=black ctermbg=white 
+"Tabline, TablineFill
+hi TabLine ctermbg=brown ctermfg=white
+hi TabLineFill ctermfg=white
+"Search Highlight Style
+hi Search  ctermfg=white ctermbg=blue
 
 "ident guides
-  let g:indent_guides_enable_on_vim_startup=1
-  let g:indent_guides_start_level=1 
-  let g:indent_guides_guide_size=1
-  let g:indent_guides_auto_colors=0
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=1 
+let g:indent_guides_guide_size=1
+let g:indent_guides_auto_colors=0
 
-  hi IndentGuidesOdd  guibg=black   ctermbg=130 
-  hi IndentGuidesEven guibg=black ctermbg=white
+hi IndentGuidesOdd  guibg=black   ctermbg=172     
+hi IndentGuidesEven guibg=black ctermbg=white
 
+"Set Leader key
+let mapleader= "\<space>"
+"Resizing on arrow keys :)
+noremap <silent> <Up> <C-w>+
+noremap <silent> <Down> <C-w>-
+noremap <silent> <Left> :vertical resize -10<CR>
+noremap <silent> <Right> :vertical resize +10<CR>
 
-
-
-"nerdTREE
-  nmap <C-n> :Vex<CR>
-
+"No ArrowKeys on Insert Mode
+inoremap <Up> <NOP>
+inoremap <right> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
 "Syntastic
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
-  
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 0
-  let g:syntastic_aggregate_errors = 1
-  "Commands
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+"Commands
 "remove highlight search
-  nnoremap <F3> :noh<CR>
+nnoremap <silent><F3> :noh<CR>
 
 "tab navigation
-  nnoremap <F10> :tabn<CR>
-  nnoremap <F9> :tabp<CR>
-  nnoremap <F2> :tabnew<CR>
-  nnoremap  <F4> :tabclose<CR>
+nnoremap <silent><Leader>m :tabn<CR>
+nnoremap <silent><Leader>n :tabp<CR>
+nnoremap <silent><F2> :tabnew<CR>
+nnoremap  <silent><F4> :tabclose<CR>
 
 "split navigation
-  nnoremap <Leader>v <C-w>v
-  nnoremap <Leader>s <C-w>s
-  nnoremap <Leader>q <C-w>q
+nnoremap <silent><Leader>v <C-w>v
+nnoremap <silent><Leader>s <C-w>s
+nnoremap <silent><Leader>q <C-w>q
 
 
 "clipboard copy - works only in vim versions with (+clipboard) flag sat. 
-  vnoremap <Leader>y "+y
-  nnoremap <Leader>p "+p
+vnoremap <Leader>y "+y
+nnoremap <Leader>p "+p
 
 " TagBar
-  nmap <F6> :TagbarToggle<CR>
+nnoremap<F6> :TagbarToggle<CR>
 
 " Window Split Navigation
-  nmap <silent> <Leader>h :wincmd h<CR>
-  nmap <silent> <Leader>j :wincmd j<CR>
-  nmap <silent> <Leader>k :wincmd k<CR>
-  nmap <silent> <Leader>l :wincmd l<CR>
+nnoremap <silent> <Leader>h :wincmd h<CR>
+nnoremap <silent> <Leader>j :wincmd j<CR>
+nnoremap <silent> <Leader>k :wincmd k<CR>
+nnoremap <silent> <Leader>l :wincmd l<CR>
 
 "Enable mouse
 "set mouse=a
 "
+"load .vimrc in new split
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+" source .vimrc
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
-"Set Goyo
-  nnoremap <F7> :Goyo 150x55<CR>
-  nnoremap <F8> :Goyo!<CR>
-
-    "Netrw
+"Clean registers
+command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
+"Netrw
 
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 let g:netrw_list_hide ='.git'
+nmap <C-n> :Lex<CR>
 
 "Fugitive Token
-  let g:github_upstream_issues =1
-  let g:github_api_url = "https://api.github.com/"
+let g:github_upstream_issues =1
+let g:github_api_url = "https://api.github.com/"
 let g:gissues_lazy_load = 1
