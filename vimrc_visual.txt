@@ -5,16 +5,16 @@ call plug#begin()
     Plug 'airblade/vim-gitgutter'
     Plug 'majutsushi/tagbar'
     Plug 'mklabs/vim-issues'
-    Plug 'davidhalter/jedi-vim'
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-lua-ftplugin'
     Plug 'tpope/vim-surround'
     Plug 'wincent/command-t'
     Plug 'wesQ3/vim-windowswap'
-
+    Plug 'mklabs/vim-issues'
     Plug 'scrooloose/syntastic'
     Plug 'tpope/vim-fugitive'
-    "--Web Development--
+    Plug 'jaxbot/github-issues.vim'
+ "--Web Development--
     Plug 'isruslan/vim-es6'
     Plug 'skammer/vim-css-color'
     Plug 'leafgarland/typescript-vim'
@@ -37,7 +37,7 @@ set nu "Line Number
 set modeline
 
 "TabStops and ShiftWidth
-set ts=4 expandtab sw=4 textwidth=100
+set ts=8 noexpandtab sw=8 textwidth=150
 "Visual autocomplete for command menu
 set wildmenu
 "Perma StatusBar
@@ -50,6 +50,7 @@ set nocompatible
 "Show incomplete Commands
 set showcmd 
 
+set noendofline binary
 "fold methods
 set foldmethod=indent
 set foldlevel=99
@@ -92,7 +93,9 @@ set noswapfile
 " vim not compatible with vi
 set autoread
 set encoding=utf-8
+set list
 set fileencoding=utf-8
+set lcs=tab:\|\ 
 set lazyredraw
 
 
@@ -113,35 +116,30 @@ set statusline+=%{fugitive#statusline()}
 "Visual 
 "Colorschemes
 "colo valloric 
-"colo railscasts
+colo railscasts
 "colo zenburn
 "colo gotham256
 "colo Revolution
 "colo mustang
-colo industry
+"colo industry
 "Line Number
 hi LineNr term=bold ctermfg=15 ctermbg=none 
 hi CursorLineNr   term=bold  ctermfg=black ctermbg=15
 "StatusLine
-hi StatusLine ctermfg=brown ctermbg=white 
+hi StatusLine ctermfg=white ctermbg=darkgreen
 hi StatusLineNC  ctermfg=black ctermbg=gray 
 "Tabline, TablineFill
-hi TabLine ctermfg=white ctermbg=black
+hi TabLine ctermfg=black ctermbg=white
 hi TabLineFill  ctermbg=black ctermfg=white
+hi TabLineSel ctermfg=black ctermfg=white
+hi Title ctermbg=none  ctermfg=black
 "Search Highlight Style
 hi Search  ctermfg=white ctermbg=blue
 
 "ident guides
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=1 
-let g:indent_guides_guide_size=1
-let g:indent_guides_auto_colors=0
-
-hi IndentGuidesOdd  guibg=black   ctermbg=172     
-hi IndentGuidesEven guibg=black ctermbg=white
-
 "Set Leader key
 let mapleader= "\<space>"
+let localmapleader='\'
 "Resizing on arrow keys :)
 noremap <silent> <Up> <C-w>+
 noremap <silent> <Down> <C-w>-
@@ -168,10 +166,10 @@ let g:syntastic_aggregate_errors = 1
 nnoremap <silent><F3> :noh<CR>
 
 "tab navigation
-nnoremap <silent><Leader>m :tabn<CR>
-nnoremap <silent><Leader>n :tabp<CR>
-nnoremap <silent><F2> :tabnew<CR>
-nnoremap  <silent><F4> :tabclose<CR>
+nnoremap <silent><Leader>W :tabnew<CR>
+nnoremap  <silent><Leader>Q :tabclose<CR>
+nnoremap <silent><Leader>n :tabfirst<CR>
+nnoremap <silent><Leader>m :tablast<CR>
 
 "split navigation
 nnoremap <silent><Leader>v <C-w>v
@@ -203,6 +201,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "Clean registers
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
+
 "Netrw
 
 let g:netrw_liststyle = 3
