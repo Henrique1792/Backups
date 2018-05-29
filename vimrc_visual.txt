@@ -37,7 +37,7 @@ set nu "Line Number
 set modeline
 
 "TabStops and ShiftWidth
-set ts=8 noexpandtab sw=8 textwidth=150
+set ts=4 noexpandtab sw=4 textwidth=150
 "Visual autocomplete for command menu
 set wildmenu
 "Perma StatusBar
@@ -78,6 +78,7 @@ set timeout timeoutlen=1000 ttimeoutlen=100
 
 " Allow backspace to delete end of line, indent and start of line characters
 set backspace=indent,eol,start
+set backspace=2
 " No Intro
 set shortmess+=I
 " No Beep when misstype
@@ -97,7 +98,7 @@ set list
 set fileencoding=utf-8
 set lcs=tab:\|\ 
 set lazyredraw
-
+set tags=tags
 
 "Current mode for statusline
 "Status bar
@@ -116,23 +117,26 @@ set statusline+=%{fugitive#statusline()}
 "Visual 
 "Colorschemes
 "colo valloric 
-colo railscasts
+"colo railscasts
 "colo zenburn
 "colo gotham256
 "colo Revolution
 "colo mustang
 "colo industry
 "Line Number
+"colo northland
+"colo wood
+colo wasabi256
 hi LineNr term=bold ctermfg=15 ctermbg=none 
 hi CursorLineNr   term=bold  ctermfg=black ctermbg=15
 "StatusLine
-hi StatusLine ctermfg=white ctermbg=darkgreen
-hi StatusLineNC  ctermfg=black ctermbg=gray 
+hi StatusLine ctermfg=white ctermbg=22
+hi StatusLineNC  ctermbg=black ctermfg=white
 "Tabline, TablineFill
-hi TabLine ctermfg=black ctermbg=white
-hi TabLineFill  ctermbg=black ctermfg=white
-hi TabLineSel ctermfg=black ctermfg=white
-hi Title ctermbg=none  ctermfg=black
+hi TabLine ctermfg=white ctermbg=black
+hi TabLineFill  ctermbg=black ctermfg=22
+hi TabLineSel ctermbg=white ctermfg=black
+hi Title ctermbg=black ctermfg=white
 "Search Highlight Style
 hi Search  ctermfg=white ctermbg=blue
 
